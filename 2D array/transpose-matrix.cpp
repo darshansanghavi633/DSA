@@ -2,10 +2,10 @@
 using namespace std;
 int main()
 {
-    int n, m;
+    int n, m, temp;
     cout << "Enter the rows and columns" << endl;
     cin >> n >> m;
-    int arr[n][m], brr[n][m];
+    int arr[n][m];
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
@@ -15,16 +15,18 @@ int main()
     }
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = i; j < m; j++)
         {
-            brr[j][i] = arr[i][j];
+            temp = arr[i][j];
+            arr[i][j] = arr[j][i];
+            arr[j][i] = temp;
         }
     }
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            cout << brr[i][j] << " ";
+            cout << arr[i][j] << " ";
         }
         cout << endl;
     }
