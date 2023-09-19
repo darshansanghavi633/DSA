@@ -34,14 +34,18 @@ int knapsack(int value[], int weight[], int capacity)
             maxValue = maxValue + value[i];
             maxWeight += weight[i];
         }
+        else if (capacity - maxWeight > 0)
+        {
+            maxValue += (float(capacity - maxWeight) / weight[i]) * value[i];
+        }
     }
     return maxValue;
 }
 int main()
 {
-    int value[3] = {2, 9, 3};
-    int weight[3] = {3, 5, 1};
-    int capacity = 8;
+    int value[3] = {60, 100, 120};
+    int weight[3] = {10, 20, 30};
+    int capacity = 50;
     cout << knapsack(value, weight, capacity);
 
     return 0;
